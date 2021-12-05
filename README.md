@@ -2,4 +2,5 @@
 [Advent of Code 2021](https://adventofcode.com/2021)
 
 ## Problems
-Short descriptions of problems. Complete problem cdescriptions can be found in README files of day packages.
+- [Day 1](src/xenoteo/com/github/day01): [Part 1](src/xenoteo/com/github/day01/part1) & 
+  [Part 2](src/xenoteo/com/github/day01/part2)
