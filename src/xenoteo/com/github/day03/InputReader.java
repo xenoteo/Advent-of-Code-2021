@@ -18,7 +18,7 @@ public class InputReader {
      * @param path  the path of the file
      * @return data converted to a long array
      */
-    public static long[] readBinaryToLongArray(URL path){
+    public static List<Long> readBinaryToLongArray(URL path){
         try {
             List<Long> input = new ArrayList<>();
             Scanner scanner = new Scanner(new File(path.getFile()));
@@ -26,7 +26,7 @@ public class InputReader {
                 input.add(Long.parseLong(scanner.nextLine(), 2));
             }
             scanner.close();
-            return input.stream().mapToLong(Long::longValue).toArray();
+            return input;
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
