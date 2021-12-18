@@ -1,4 +1,4 @@
-package xenoteo.com.github.day05.part1;
+package xenoteo.com.github.day05.part2;
 
 import xenoteo.com.github.day05.Line;
 import xenoteo.com.github.day05.Point;
@@ -16,8 +16,6 @@ public class Solution {
     /**
      * Counts the number of points covered by at least 2 lines.
      *
-     * Only horizontal and vertical lines considered.
-     *
      * Iterating over the list of liens and by adding each point of the line to the pointsCoverage map,
      * which is counting how many lines each point is covered by.
      * Next, counting how many points are covered by more than one line.
@@ -31,40 +29,19 @@ public class Solution {
     public long countPointsWithOverlaps(List<Line> lines) {
         Map<Point, Integer> pointsCoverage = new HashMap<>();
         for (Line line : lines) {
-            if (!horizontalOrVertical(line)) continue;
+            int xDiff = line.point1.x == line.point2.x ? 0 :
+                    (line.point2.x - line.point1.x) / Math.abs(line.point2.x - line.point1.x);
+            int yDiff = line.point1.y == line.point2.y ? 0 :
+                    (line.point2.y - line.point1.y) / Math.abs(line.point2.y - line.point1.y);
 
-            int xDiff;
-            int yDiff;
-            if (line.point1.x == line.point2.x) {
-                xDiff = 0;
-                yDiff = 1;
-            }
-            else {
-                xDiff = 1;
-                yDiff = 0;
-            }
-
-            int xStart = Math.min(line.point1.x, line.point2.x);
-            int xEnd = Math.max(line.point1.x, line.point2.x);
-            int yStart = Math.min(line.point1.y, line.point2.y);
-            int yEnd = Math.max(line.point1.y, line.point2.y);
-
-            for (int x = xStart, y = yStart; x <= xEnd && y <= yEnd; x += xDiff, y += yDiff) {
+            for (int x = line.point1.x, y = line.point1.y; !(x == line.point2.x && y == line.point2.y); x += xDiff, y += yDiff) {
                 Point point = new Point(x, y);
                 pointsCoverage.put(point, pointsCoverage.getOrDefault(point, 0) + 1);
             }
+            pointsCoverage.put(line.point2, pointsCoverage.getOrDefault(line.point2, 0) + 1);
         }
 
         return pointsCoverage.values().stream().filter(n -> n > 1).count();
     }
 
-    /**
-     * Checks whether the provided line is horizontal or vertical.
-     *
-     * @param line  the line
-     * @return whether the provided line is horizontal or vertical
-     */
-    private boolean horizontalOrVertical(Line line) {
-        return line.point1.x == line.point2.x || line.point1.y == line.point2.y;
-    }
 }
