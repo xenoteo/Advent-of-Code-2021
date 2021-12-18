@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class proceeding an input file.
+ */
 public class InputReader {
 
     /**

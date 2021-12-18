@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Solution of the day 5, part 1.
+ * Solution of the day 5, part 2.
  * @see <a href="https://adventofcode.com/2021/day/5">Day 5</a>
  */
 public class Solution {
