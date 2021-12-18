@@ -16,7 +16,8 @@ public class Solution {
      * mapped by array index (e.g. the element at index 0 keeps the number lanternfishes of state 0).
      * Iterates over the array of states and creates the array of new day states based on lanternfishes counters.
      *
-     * Time complexity is O(D), space complexity is O(1), where D is the number of days.
+     * Time complexity is O(max(D, N)), space complexity is O(1),
+     * where D is the number of days and N is the number of lanternfishes on the first day.
      *
      * @param lanternfishes  the list of lanternfishes
      * @param days  the number of days

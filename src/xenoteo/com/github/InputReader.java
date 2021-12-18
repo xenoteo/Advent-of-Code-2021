@@ -3,10 +3,8 @@ package xenoteo.com.github;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Class proceeding an input file.
@@ -87,6 +85,35 @@ public class InputReader {
      */
     public static char[][] readTo2DCharArray(URL path){
         return stringListTo2DCharArray(Objects.requireNonNull(readToStringList(path)));
+    }
+
+    /**
+     * Reads data from the input file with provided filename.
+     *
+     * @param path  the path of the file
+     * @return data converted to the list of integers
+     */
+    public static List<Integer> readNumbersSeparatedByCommasToList(URL path){
+        try {
+            Scanner scanner = new Scanner(new File(path.getFile()));
+            String line = scanner.nextLine();
+            scanner.close();
+            return Arrays.stream(line.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Reads data from the input file with provided filename.
+     *
+     * @param path  the path of the file
+     * @return data converted to an int array
+     */
+    public static int[] readNumbersSeparatedByCommasToArray(URL path){
+        return readNumbersSeparatedByCommasToList(path).stream().mapToInt(x -> x).toArray();
     }
 
     /**
