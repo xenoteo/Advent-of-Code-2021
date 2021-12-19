@@ -14,7 +14,7 @@ public class Solution {
     /**
      * Counts how many times digits 1, 4, 7 or 8 (by the number of segments they use) appear in the output.
      *
-     * Time complexity is O(N), space complexity is O(1).
+     * Time complexity is O(N), space complexity is O(1); N is the number of records.
      *
      * @param records  the list of records
      * @return how many times digits 1, 4, 7 or 8 appear in the output
