@@ -91,6 +91,16 @@ public class InputReader {
      * Reads data from the input file with provided filename.
      *
      * @param path  the path of the file
+     * @return data converted to 2D int array
+     */
+    public static int[][] readTo2DIntArray(URL path){
+        return stringListTo2DIntArray(Objects.requireNonNull(readToStringList(path)));
+    }
+
+    /**
+     * Reads data from the input file with provided filename.
+     *
+     * @param path  the path of the file
      * @return data converted to the list of integers
      */
     public static List<Integer> readNumbersSeparatedByCommasToList(URL path){
@@ -132,4 +142,22 @@ public class InputReader {
         }
         return arr;
     }
+
+    /**
+     * Converts a list of strings to a 2D int array.
+     *
+     * @param list  the list to convert
+     * @return the 2D int array
+     */
+    private static int[][] stringListTo2DIntArray(List<String> list){
+        int[][] arr = new int[list.size()][list.get(0).length()];
+        for (int i = 0; i < list.size(); i++){
+            String line = list.get(i);
+            for (int j = 0; j < line.length(); j++){
+                arr[i][j] = Integer.parseInt(line.charAt(j) + "");
+            }
+        }
+        return arr;
+    }
+
 }
