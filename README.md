@@ -13,3 +13,4 @@
 - [Day &nbsp;&nbsp;9](src/xenoteo/com/github/day09) — [Part 1](src/xenoteo/com/github/day09/part1) & [Part 2](src/xenoteo/com/github/day09/part2)
 - [Day 10](src/xenoteo/com/github/day10) — [Part 1](src/xenoteo/com/github/day10/part1) & [Part 2](src/xenoteo/com/github/day10/part2)
 - [Day 11](src/xenoteo/com/github/day11) — [Part 1](src/xenoteo/com/github/day11/part1) & [Part 2](src/xenoteo/com/github/day11/part2)
+- [Day 12](src/xenoteo/com/github/day12) — [Part 1](src/xenoteo/com/github/day12/part1) & [Part 2](src/xenoteo/com/github/day12/part2)
