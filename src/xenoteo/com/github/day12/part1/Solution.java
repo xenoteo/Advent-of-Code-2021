@@ -15,9 +15,9 @@ public class Solution {
      * Used DFS-based solution to count the paths. Big caves are never marked as visited,
      * only small ones are being marked as visited. Starting and ending caves are visited only once.
      *
-     * Time complexity is O(S + B * S), space complexity is O(B + S) (because of recursive calls),
+     * Time complexity is O((S + B * S) * N) ~ O(B * S * N), space complexity is O(B + S) (because of recursive calls),
      * where (B + S) is the number of all caves in the cave system,
-     * S is the number of small caves and B is the number of big caves.
+     * S is the number of small caves, B is the number of big caves and N is the number of one cave neighbours.
      *
      * @param cave  the starting cave
      * @return the number of paths through the cave system that visit small caves at most once
